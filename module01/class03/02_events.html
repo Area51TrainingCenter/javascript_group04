@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <a href="#" id="enlace">Enlace</a>
+  <script type="text/javascript">
+    var enlace = document.getElementById('enlace');
+
+    document.body.addEventListener('click', function(e) {
+      console.log('click en <body>', e.eventPhase);
+    }, false);
+
+    window.addEventListener('click', function(e) {
+      console.log('click en window', e.eventPhase);
+    }, false);
+
+    document.addEventListener('click', function(e) {
+      console.log('click en document', e.eventPhase);
+    }, false);
+
+    document.documentElement.addEventListener('click', function(e) {
+      console.log('click en <html>', e.eventPhase);
+    }, false);
+
+    enlace.addEventListener('click', function(e) {
+      alert('click')
+      console.log('click en <a>', e.eventPhase);
+      e.stopPropagation();
+    }, false);
+  </script>
+</body>
+</html>

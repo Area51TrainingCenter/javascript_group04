@@ -1,23 +1,28 @@
 function Coleccion() {
 }
 
+Coleccion.prototype.agregar = function(elemento) {
+  this.push(elemento);
+  PubSub.publicar('coleccion:agregar', elemento, this);
+}
+
 Coleccion.prototype = Array.prototype;
 
-var ColeccionPrototype = {};
+var ColeccionMixin = {};
 
-ColeccionPrototype.ultimoElemento = function() {
+ColeccionMixin.ultimoElemento = function() {
   return this[this.length - 1];
 }
 
-ColeccionPrototype.primerElemento = function() {
+ColeccionMixin.primerElemento = function() {
   return this[0];
 }
 
-ColeccionPrototype.en = function(posicion) {
+ColeccionMixin.en = function(posicion) {
   return this[posicion];
 }
 
-ColeccionPrototype.sumar = function() {
+ColeccionMixin.sumar = function() {
   var total = 0;
 
   for (var i = 0; i < this.length; i++) {
@@ -27,6 +32,8 @@ ColeccionPrototype.sumar = function() {
   return total;
 }
 
-for (var metodo in ColeccionPrototype) {
-  Coleccion.prototype[metodo] = ColeccionPrototype[metodo];
+_.extend(Coleccion.prototype, ColeccionMixin);
+
+for (var metodo in source) {
+  destination[metodo] = source[metodo];
 }
