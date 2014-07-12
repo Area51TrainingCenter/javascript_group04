@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Websockets</title>
+  <script type="text/javascript">
+    var connection;
+    window.onload = function() {
+      connection = new WebSocket('ws://192.168.0.137:1234/canal1');
+
+      connection.onopen = function() {
+        console.log("connected...");
+
+        connection.send(JSON.stringify({message: 'Mensaje de prueba'}));
+      };
+
+      connection.onclose = function() {
+        console.log("socket closed");
+      };
+
+      connection.onmessage = function(evt) {
+        message = JSON.parse(evt.data);
+        console.log('New message received: ', message.data.message);
+      };
+    };
+  </script>
+</head>
+<body>
+</body>
+</html>

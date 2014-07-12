@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XHR POST</title>
+</head>
+<body>
+  <form id="formulario">
+    <input type="text" name="usuario" id="usuario">
+    <input type="password" name="contrasena" id="contrasena">
+    <input type="file" name="archivo">
+
+    <input type="submit">
+  </form>
+
+  <script type="text/javascript">
+    var formulario = document.getElementById('formulario');
+
+    formulario.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var xhr = new XMLHttpRequest();
+      var formData = new FormData(formulario);
+
+      xhr.open('POST', 'http://192.168.0.137/post.php', true);
+      xhr.send(formData);
+
+      formulario.reset()
+    });
+  </script>
+</body>
+</html>

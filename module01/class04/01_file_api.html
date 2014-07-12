@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File API</title>
+</head>
+<body>
+  <input type="file" id="file" />
+  <div id="preview"></div>
+  <script type="text/javascript">
+    var fileInput = document.getElementById('file');
+    var preview = document.getElementById('preview');
+
+    var previewImage = document.createElement('img');
+
+    fileInput.addEventListener('change', function(e) {
+      var image = e.target.files[0];
+
+      var reader = new FileReader();
+      reader.addEventListener('load', function(re) {
+        //console.log(re.target.result);
+        previewImage.setAttribute('src', re.target.result);
+
+        if (previewImage.parentNode === null) {
+          preview.appendChild(previewImage);
+        }
+      });
+
+      reader.readAsDataURL(image);
+    });
+  </script>
+</body>
+</html>

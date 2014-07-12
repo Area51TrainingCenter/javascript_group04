@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XHR</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('GET', 'http://192.168.0.137/', true);
+
+    xhr.addEventListener('load', function() {
+      console.log(xhr.responseText);
+    });
+
+    xhr.send();
+  </script>
+</body>
+</html>

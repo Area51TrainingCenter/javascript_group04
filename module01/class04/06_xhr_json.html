@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>XHR JSON</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('GET', 'http://coffeemaker.herokuapp.com/twitter.json?q=javascript', true);
+
+    xhr.addEventListener('load', function() {
+      console.log(xhr);
+      JSON.parse(xhr.responseText).map(function(item) {
+        console.log(item.text);
+      });
+    });
+
+    xhr.send();
+  </script>
+</body>
+</html>
