@@ -41,3 +41,28 @@ describe("Calc", function() {
     }).toThrow();
   });
 });
+
+describe('Custom Matchers', function() {
+  beforeEach(function() {
+    this.addMatchers({
+      toBeInstanceOf: function(constructor) {
+        return this.actual instanceof constructor;
+      },
+      is: function(selector) {
+        return this.actual.webkitMatchesSelector(selector);
+      },
+      isChildOf: function(parent) {
+        return this.actual.parentNode === parent;
+      }
+    });
+  })
+
+  it("instanceof", function() {
+    var fecha = new Date();
+    expect(fecha).toBeInstanceOf(Object);
+  });
+
+  it("custom matcher", function() {
+    expect(document.body).is('body');
+  });
+})
