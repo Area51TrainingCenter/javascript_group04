@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Require.js</title>
+</head>
+<body>
+  <script type="text/javascript" data-main="app/main" src="lib/require.js"></script>
+  <script type="text/javascript">
+    requirejs.config({
+      urlArgs: 'timestamp=' + Date.now()
+    });
+  </script>
+</body>
+</html>
