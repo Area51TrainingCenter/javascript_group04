@@ -7,7 +7,10 @@
   <script type="text/javascript" data-main="app/main" src="lib/require.js"></script>
   <script type="text/javascript">
     requirejs.config({
-      urlArgs: 'timestamp=' + Date.now()
+      urlArgs: 'timestamp=' + Date.now(),
+      paths: {
+        jquery: 'http://code.jquery.com/jquery-1.11.0.min'
+      }
     });
   </script>
 </body>
