@@ -4,12 +4,19 @@
   <title>Require.js</title>
 </head>
 <body>
+  <div id="contenedor"></div>
+  <form id="nuevo_alumno_formulario" style="display: none">
+    <input type="text" id="nombre" >
+    <input type="number" id="edad">
+    <input type="submit">
+  </form>
   <script type="text/javascript" data-main="app/main" src="lib/require.js"></script>
   <script type="text/javascript">
     requirejs.config({
       urlArgs: 'timestamp=' + Date.now(),
       paths: {
-        jquery: 'http://code.jquery.com/jquery-1.11.0.min'
+        //jquery: 'http://code.jquery.com/jquery-1.11.0.min'
+        jquery: '../lib/jquery'
       }
     });
   </script>

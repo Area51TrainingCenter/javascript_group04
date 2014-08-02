@@ -4,8 +4,8 @@ define([
   'vistas/vista_alumno'
 ], function($, Alumno, VistaAlumno) {
   function VistaIndex(coleccion) {
-    this.el = $('<div id="index"></div>');
-
+    this.el = null;
+    
     if (coleccion) {
       this.coleccion = coleccion;
     }
@@ -13,6 +13,7 @@ define([
 
   VistaIndex.prototype.render = function() {
     var self = this;
+    this.el = $('<div id="index"></div>');
     this.el.append('<a href="#" id="nuevo_alumno">Nuevo alumno</a>');
     this.el.on('click', '#nuevo_alumno', function(e) {
       e.preventDefault();

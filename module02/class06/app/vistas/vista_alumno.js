@@ -7,7 +7,9 @@ define(['jquery'], function(jQuery) {
   VistaAlumno.prototype.render = function() {
     this.el = $('<div class="alumno"></div>');
 
-    this.el.append('<p>email: ' + this.modelo.get('email') + '</p>');
+    for (var i in this.modelo.atributos) {
+      this.el.append('<p>' + i + ': ' + this.modelo.get(i) + '</p>');
+    }
 
     return this;
   }
