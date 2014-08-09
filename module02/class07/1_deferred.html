@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>$.Deferred</title>
+</head>
+<body>
+  <script type="text/javascript" src="jquery.js"></script>
+
+  <script type="text/javascript">
+    function getTweets(query) {
+      var deferred = new $.Deferred();
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'http://coffeemaker.herokuapp.com/twitter.json?q=' + query, true);
+
+      xhr.addEventListener('load', function() {
+        var data = JSON.parse(xhr.responseText);
+
+        deferred.resolve(data);
+      });
+
+      xhr.addEventListener('error', function() {
+        deferred.reject(xhr);
+      })
+
+      xhr.send();
+
+      return deferred.promise();
+    }
+
+    function onLoad(data) {
+      console.log(data);
+    }
+
+    getTweets('Miraflores').done(onLoad).done(function(data) {
+      console.log(data.length);
+    })
+  </script>
+</body>
+</html>
