@@ -1,7 +1,34 @@
-require(['modelos/alumno', 'sync'], function(Alumno) {
-  var alumno1 = new Alumno();
+require(['modelos/alumno', 'colecciones/alumnos', 'sync'], function(Alumno,Alumnos) {
+  var alumno1 = new Alumno({ nombre: 'Alumno 1' }),
+      alumno2 = new Alumno({ nombre: 'Alumno 2' }),
+      alumno3 = new Alumno({ nombre: 'Alumno 3' }),
+      alumnos = new Alumnos();
 
-  alumno1.on('change:nombre', function() {
+  alumnos.on('add', function(model) {
+    console.log('Elemento agregado a la colección: ', model);
+  });
+
+  alumnos.on('remove', function(model) {
+    console.log('Elemento eliminado de la colección: ', model);
+  });
+
+  alumnos.on('reset', function(model) {
+    console.log('La colección ha sido reiniciada');
+  });
+
+  alumnos.on('change', function(model) {
+    console.log('Un modelo de la colección ha sido modificada', model);
+  });
+
+  alumnos.add([alumno1, alumno2]);
+  alumnos.set([alumno1, alumno2, alumno3]);
+
+  alumno1.set('nombre', 'Pepito');
+  alumno2.set('nombre', 'Juanito');
+
+  alumnos.reset([]);
+
+  /*alumno1.on('change:nombre', function() {
     console.log('Cambiado a: ', this.get('nombre'));
   });
 
@@ -27,7 +54,5 @@ require(['modelos/alumno', 'sync'], function(Alumno) {
 
   alumno1.set('nombre', 'Juanito');
 
-  alumno1.save();
-
-  window.alumno1 = alumno1;
+  alumno1.save();*/
 });
