@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)file:///Users/hpneo/Development/javascript_group04/module02/class07/backbone/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Backbone.js</title>
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="main" src="./Backbone.js_files/main.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="modelos/alumno" src="./Backbone.js_files/alumno.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="sync" src="./Backbone.js_files/sync.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="backbone" src="./Backbone.js_files/backbone.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="underscore" src="./Backbone.js_files/underscore.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./Backbone.js_files/jquery.js"></script></head>
+<body>
+  <script type="text/javascript" src="./Backbone.js_files/require.js" data-main="app/main.js"></script>
+  <script type="text/javascript">
+    requirejs.config({
+      urlArgs: 'timestamp=' + Date.now(),
+      paths: {
+        jquery: '../lib/jquery',
+        underscore: '../lib/underscore',
+        backbone: '../lib/backbone'
+      },
+      shims: {
+        'backbone': {
+          deps: [ 'underscore', 'jquery' ],
+          exports: 'Backbone'
+        }
+      }
+    });
+  </script>
+
+</body></html>

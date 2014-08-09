@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Backbone.js</title>
+</head>
+<body>
+  <script type="text/javascript" src="lib/require.js" data-main="app/main.js"></script>
+  <script type="text/javascript">
+    requirejs.config({
+      urlArgs: 'timestamp=' + Date.now(),
+      paths: {
+        jquery: '../lib/jquery',
+        underscore: '../lib/underscore',
+        backbone: '../lib/backbone'
+      },
+      shims: {
+        'backbone': {
+          deps: [ 'underscore', 'jquery' ],
+          exports: 'Backbone'
+        }
+      }
+    });
+  </script>
+</body>
+</html>
