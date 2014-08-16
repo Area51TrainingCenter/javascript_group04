@@ -11,7 +11,8 @@
       paths: {
         jquery: '../lib/jquery',
         underscore: '../lib/underscore',
-        backbone: '../lib/backbone'
+        backbone: '../lib/backbone',
+        text: '../lib/text'
       },
       shims: {
         'backbone': {
@@ -20,6 +21,13 @@
         }
       }
     });
+  </script>
+  <script type="text/html" id="plantilla_alumno">
+    <strong>Nombre:</strong> <%= nombre%>
+    <br />
+    <strong>Apellido:</strong> <%= apellido %>
+    <br/>
+    <strong>Edad:</strong> <%= edad %>
   </script>
 </body>
 </html>

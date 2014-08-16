@@ -1,7 +1,10 @@
-define(['backbone', 'modelos/alumno'], function(Backbone, Alumno) {
+define(['backbone',
+  'modelos/alumno'], function(Backbone, Alumno) {
+  var plantilla = $('#plantilla_alumno').html();
+  
   var VistaAlumno = Backbone.View.extend({
     tagName: 'div',
-    template: _.template('Nombre: <%= nombre%><br />Apellido: <%= apellido %><br/>Edad: <%= edad %>'),
+    template: _.template(plantilla),
     className: 'alumno',
     initialize: function(options) {
       this.listenTo(this.model, 'change', this.render);
