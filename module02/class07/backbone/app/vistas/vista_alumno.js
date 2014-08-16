@@ -7,6 +7,7 @@ define(['backbone',
     template: _.template(plantilla),
     className: 'alumno',
     events: {
+      'click': 'irADetalle',
       'click strong': 'editarPropiedad'
     },
     initialize: function(options) {
@@ -14,6 +15,8 @@ define(['backbone',
     },
     render: function() {
       this.$el.html('');
+
+      this.$el.attr('id', 'alumno-' + Date.now());
 
       var attributes = this.model.toJSON(),
           elementContent = '';
@@ -31,6 +34,9 @@ define(['backbone',
       $('body').append(this.$el);
 
       return this;
+    },
+    irADetalle: function(e) {
+      location.hash = "alumnos/" + this.$el.attr('id').replace('alumno-', '');
     },
     editarPropiedad: function(e) {
       var attributeName = e.target.textContent.replace(':', '').trim().toLowerCase();

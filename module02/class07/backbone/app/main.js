@@ -2,7 +2,12 @@ require(['modelos/alumno',
   'colecciones/alumnos',
   'vistas/vista_alumno',
   'vistas/vista_nuevo_alumno',
-  'sync'], function(Alumno, Alumnos, VistaAlumno, VistaNuevoAlumno) {
+  'routers/router',
+  'sync'], function(Alumno,
+                    Alumnos,
+                    VistaAlumno,
+                    VistaNuevoAlumno,
+                    Router) {
   var alumno1 = new Alumno({ nombre: 'Alumno 1' }),
       alumno2 = new Alumno({ nombre: 'Alumno 2' }),
       alumno3 = new Alumno({ nombre: 'Alumno 3' }),
@@ -68,4 +73,8 @@ require(['modelos/alumno',
   alumno1.set('edad', 23);
 
   var vistaNuevoAlumno = new VistaNuevoAlumno();
+
+  new Router();
+
+  Backbone.history.start();
 });
