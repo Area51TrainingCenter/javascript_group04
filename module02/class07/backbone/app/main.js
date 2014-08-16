@@ -1,6 +1,8 @@
 require(['modelos/alumno',
   'colecciones/alumnos',
-  'vistas/vista_alumno','sync'], function(Alumno, Alumnos, VistaAlumno) {
+  'vistas/vista_alumno',
+  'vistas/vista_nuevo_alumno',
+  'sync'], function(Alumno, Alumnos, VistaAlumno, VistaNuevoAlumno) {
   var alumno1 = new Alumno({ nombre: 'Alumno 1' }),
       alumno2 = new Alumno({ nombre: 'Alumno 2' }),
       alumno3 = new Alumno({ nombre: 'Alumno 3' }),
@@ -65,5 +67,5 @@ require(['modelos/alumno',
   alumno1.set('apellido', 'Perez');
   alumno1.set('edad', 23);
 
-  console.log(vistaAlumno);
+  var vistaNuevoAlumno = new VistaNuevoAlumno();
 });
