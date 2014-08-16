@@ -11,9 +11,15 @@ define(['backbone',
       
       var alumno = new Alumno();
 
-      alumno.set('nombre', prompt('Ingrese nombre:'));
-      alumno.set('apellido', prompt('Ingrese apellido:'));
-      alumno.set('edad', prompt('Ingrese edad:'));
+      alumno.set({
+        'nombre': prompt('Ingrese nombre:'),
+        'apellido': prompt('Ingrese apellido:'),
+        'edad': prompt('Ingrese edad:')
+      });
+
+      // alumno.set('nombre', prompt('Ingrese nombre:'));
+      // alumno.set('apellido', prompt('Ingrese apellido:'));
+      // alumno.set('edad', prompt('Ingrese edad:'));
 
       if (alumno.isValid()) {
         var vistaAlumno = new VistaAlumno({
