@@ -1,4 +1,6 @@
-require(['modelos/alumno', 'colecciones/alumnos', 'sync'], function(Alumno,Alumnos) {
+require(['modelos/alumno',
+  'colecciones/alumnos',
+  'vistas/vista_alumno','sync'], function(Alumno, Alumnos, VistaAlumno) {
   var alumno1 = new Alumno({ nombre: 'Alumno 1' }),
       alumno2 = new Alumno({ nombre: 'Alumno 2' }),
       alumno3 = new Alumno({ nombre: 'Alumno 3' }),
@@ -55,4 +57,13 @@ require(['modelos/alumno', 'colecciones/alumnos', 'sync'], function(Alumno,Alumn
   alumno1.set('nombre', 'Juanito');
 
   alumno1.save();*/
+  var vistaAlumno = new VistaAlumno({
+    model: alumno1
+  });
+
+  alumno1.set('nombre', 'Pepito');
+  alumno1.set('apellido', 'Perez');
+  alumno1.set('edad', 23);
+
+  console.log(vistaAlumno);
 });

@@ -1,0 +1,32 @@
+define(['backbone', 'modelos/alumno'], function(Backbone, Alumno) {
+  var VistaAlumno = Backbone.View.extend({
+    tagName: 'div',
+    template: _.template('Nombre: <%= nombre%><br />Apellido: <%= apellido %><br/>Edad: <%= edad %>'),
+    className: 'alumno',
+    initialize: function(options) {
+      this.listenTo(this.model, 'change', this.render);
+    },
+    render: function() {
+      this.$el.html('');
+
+      var attributes = this.model.toJSON(),
+          elementContent = '';
+
+      elementContent = this.template(attributes);
+
+      /*for (var a in attributes) {
+        var attributeName = a,
+            attributeValue = attributes[a];
+        
+        elementContent += attributeName + ': ' + attributeValue + '<br/>';
+      }*/
+
+      this.$el.html(elementContent);
+      $('body').append(this.$el);
+
+      return this;
+    }
+  });
+
+  return VistaAlumno;
+});
